@@ -1,0 +1,198 @@
+/* Fleet section. Each .ml-fleet-visual panel layers its truck photograph
+ * behind the content: ::before paints the image, ::after lays the panel tint
+ * back over it, and --ml-truck-photo selects which truck. */
+
+.ml-fleet-section {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: var(--ml-navy);
+  color: var(--ml-paper);
+}
+
+.ml-fleet-section::after {
+  background: linear-gradient(
+    60deg,
+    rgba(5, 20, 31, 0.92),
+    rgba(18, 108, 150, 0.84)
+  );
+}
+
+.ml-fleet-section > .ml-container {
+  position: relative;
+  z-index: 1;
+}
+
+.ml-fleet-section h2 {
+  color: var(--ml-paper);
+}
+.ml-fleet-section .ml-section-intro {
+  color: rgba(244, 241, 234, 0.58);
+}
+.ml-fleet-heading {
+  margin-bottom: 52px;
+}
+
+.ml-fleet-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.ml-fleet-card {
+  border: 1px solid rgba(244, 241, 234, 0.26);
+  background: rgba(7, 25, 37, 0.72);
+  backdrop-filter: blur(0.3px);
+}
+
+.ml-fleet-visual {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  min-height: 215px;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(244, 241, 234, 0.19);
+  color: var(--ml-amber);
+}
+
+/*
+ * The truck photograph sits behind the panel content on two stacked pseudo
+ * layers: `::before` carries the image, `::after` lays the panel's own tint
+ * back over it so the "MTL / nn" label keeps its contrast.
+ */
+.ml-fleet-visual::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  background-image: var(--ml-truck-photo);
+  background-position: center;
+  background-size: cover;
+}
+
+.ml-fleet-visual::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  background: var(--ml-truck-veil);
+}
+
+.ml-fleet-visual span {
+  position: relative;
+  z-index: 2;
+  align-self: flex-start;
+  /* `margin-right: auto` keeps the label hard left; the icon that used to
+     provide that push is gone. */
+  margin: 23px auto 0 24px;
+  color: rgba(244, 241, 234, 0.78);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.ml-fleet-visual-heavy {
+  --ml-truck-photo: url("/fleet-30t-daf.webp");
+  /*--ml-truck-veil: linear-gradient(
+    100deg,
+    rgba(7, 25, 37, 0.9) 0%,
+    rgba(7, 25, 37, 0.78) 55%,
+    rgba(10, 34, 49, 0.62) 100%
+  );*/
+}
+
+.ml-fleet-visual-light {
+  --ml-truck-photo: url("/fleet-15t-benz.jpg");
+  /*--ml-truck-veil: linear-gradient(
+    50deg,
+    rgba(22, 89, 121, 0.9) 0%,
+    rgba(2, 97, 187, 0.78) 40%,
+    rgba(241, 239, 240, 0.62) 100%
+  );*/
+  background: rgba(40, 105, 180, 0.92);
+  color: var(--ml-paper);
+}
+.ml-fleet-visual-light span {
+  color: rgba(244, 241, 234, 0.78);
+}
+
+.ml-fleet-details {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 24px 24px 19px;
+}
+
+.ml-fleet-label {
+  color: var(--ml-amber);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+}
+
+/* The 15T panel is veiled berry, not navy — keep its label on the same warm
+   accent as the 30T panel so the two cards read as a pair. */
+.ml-fleet-visual-light + .ml-fleet-details .ml-fleet-label {
+  color: var(--ml-amber);
+}
+
+.ml-fleet-details h3 {
+  margin: 8px 0 0;
+  color: var(--ml-paper);
+  font-size: 20px;
+  letter-spacing: -0.03em;
+}
+
+.ml-fleet-index {
+  color: rgba(244, 241, 234, 0.4);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.ml-fleet-card dl {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 0 24px 24px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(244, 241, 234, 0.15);
+}
+
+.ml-fleet-card dl div {
+  display: grid;
+  gap: 6px;
+}
+.ml-fleet-card dt {
+  color: rgba(244, 241, 234, 0.45);
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.ml-fleet-card dd {
+  margin: 0;
+  color: rgba(244, 241, 234, 0.84);
+  font-size: 11px;
+  line-height: 1.35;
+}
+
+@media (max-width: 700px) {
+  .ml-fleet-grid {
+    grid-template-columns: 1fr;
+  }
+  .ml-fleet-heading {
+    margin-bottom: 33px;
+  }
+  .ml-fleet-visual {
+    min-height: 180px;
+  }
+  .ml-fleet-card dl {
+    gap: 9px;
+    margin-inline: 17px;
+  }
+  .ml-fleet-details {
+    padding-inline: 17px;
+  }
+}

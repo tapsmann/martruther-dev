@@ -1,0 +1,175 @@
+/* Services section: the two truck capability cards and the
+ * 'available on request' row. */
+
+.ml-service-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.ml-service-card {
+  position: relative;
+  min-height: 362px;
+  overflow: hidden;
+  padding: 27px 30px 28px;
+}
+
+.ml-service-card::after {
+  position: absolute;
+  right: -48px;
+  bottom: -76px;
+  width: 260px;
+  height: 260px;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  opacity: 0.16;
+  content: "";
+}
+
+.ml-service-card-dark {
+  background: var(--ml-navy);
+  color: var(--ml-paper);
+}
+
+.ml-service-card-amber {
+  background: var(--ml-berry);
+  color: var(--ml-paper);
+}
+
+.ml-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: currentColor;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.ml-service-card-dark .ml-card-top {
+  color: rgba(244, 241, 234, 0.6);
+}
+
+.ml-service-capacity {
+  position: relative;
+  z-index: 1;
+  margin-top: 38px;
+  font-size: clamp(4.5rem, 9vw, 7.5rem);
+  font-weight: 760;
+  letter-spacing: -0.11em;
+  line-height: 0.8;
+}
+
+.ml-service-capacity span {
+  margin-left: 9px;
+  font-size: 0.25em;
+  letter-spacing: 0;
+  vertical-align: top;
+}
+
+.ml-service-card h3 {
+  position: relative;
+  z-index: 1;
+  margin: 28px 0 9px;
+  font-size: 20px;
+  letter-spacing: -0.03em;
+}
+
+.ml-service-card p {
+  position: relative;
+  z-index: 1;
+  max-width: 400px;
+  margin: 0;
+  color: rgba(244, 241, 234, 0.7);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.ml-service-card-amber p {
+  color: rgba(244, 241, 234, 0.7);
+}
+
+.ml-service-tags {
+  position: absolute;
+  right: 30px;
+  bottom: 28px;
+  left: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  z-index: 1;
+}
+
+.ml-service-tags span {
+  border: 1px solid rgba(244, 241, 234, 0.28);
+  padding: 6px 8px;
+  color: rgba(244, 241, 234, 0.68);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.ml-service-card-amber .ml-service-tags span {
+  border-color: rgba(244, 241, 234, 0.28);
+  color: rgba(244, 241, 234, 0.68);
+}
+
+.ml-offering-row {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  align-items: center;
+  gap: 30px;
+  margin-top: 25px;
+  padding-top: 22px;
+  border-top: 1px solid var(--ml-line);
+}
+
+.ml-offering-label {
+  color: #14040b;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.ml-offering-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 27px;
+}
+
+.ml-offering-options span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #536166;
+  font-size: 12px;
+}
+
+.ml-offering-options svg {
+  color: var(--ml-berry);
+}
+
+@media (max-width: 700px) {
+  .ml-service-grid {
+    grid-template-columns: 1fr;
+  }
+  .ml-service-card {
+    min-height: 335px;
+    padding: 24px 23px;
+  }
+  .ml-service-tags {
+    right: 23px;
+    bottom: 23px;
+    left: 23px;
+  }
+  .ml-offering-row {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 22px;
+  }
+  .ml-offering-options {
+    gap: 11px 17px;
+  }
+}

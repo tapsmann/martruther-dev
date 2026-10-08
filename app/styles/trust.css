@@ -1,0 +1,89 @@
+/* Trust strip directly beneath the hero: capacity, credentials,
+ * location and the primary phone number. */
+
+.ml-trust-strip {
+  border-bottom: 1px solid rgba(244, 241, 234, 0.16);
+  background: var(--ml-berry);
+  color: var(--ml-paper);
+}
+
+.ml-trust-grid {
+  display: grid;
+  min-height: 93px;
+  grid-template-columns: 1fr 1.35fr 1.1fr 1.2fr;
+  align-items: center;
+  gap: 25px;
+}
+
+.ml-trust-item {
+  display: grid;
+  gap: 6px;
+  border-right: 1px solid rgba(244, 241, 234, 0.2);
+  padding-right: 22px;
+}
+
+.ml-trust-item:last-child {
+  border: 0;
+}
+
+.ml-trust-item strong {
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.ml-trust-item strong span {
+  color: rgba(244, 241, 234, 0.62);
+  font-weight: 500;
+}
+
+.ml-trust-item > span {
+  color: rgba(244, 241, 234, 0.68);
+  font-size: 10px;
+  letter-spacing: 0.04em;
+}
+
+.ml-trust-contact {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.ml-trust-contact a:hover,
+.ml-trust-contact a:focus-visible {
+  text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+  .ml-trust-grid {
+    grid-template-columns: repeat(2, 1fr);
+    padding-block: 20px;
+  }
+  .ml-trust-item:nth-child(2) {
+    border-right: 0;
+  }
+}
+
+@media (max-width: 700px) {
+  .ml-trust-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 19px 16px;
+    padding-block: 20px;
+  }
+  .ml-trust-item {
+    border-right: 0;
+    padding-right: 0;
+  }
+  .ml-trust-item strong {
+    font-size: 12px;
+  }
+  .ml-trust-item > span {
+    font-size: 9px;
+    line-height: 1.3;
+  }
+  .ml-trust-contact {
+    font-size: 11px;
+  }
+}

@@ -1,0 +1,148 @@
+/* About section: company story, address, the people card and the
+ * three company values. */
+
+.ml-about-section {
+  background: var(--ml-paper-deep);
+}
+
+.ml-about-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 100px;
+  align-items: center;
+}
+
+.ml-about-intro p:not(.ml-kicker) {
+  max-width: 490px;
+  margin: 28px 0 0;
+  color: #596568;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.ml-address {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 34px;
+  color: var(--ml-ink);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+.ml-address svg {
+  margin-top: 2px;
+  color: var(--ml-berry);
+}
+
+.ml-about-side {
+  display: grid;
+  gap: 30px;
+}
+
+.ml-people-card {
+  padding: 25px 27px 18px;
+  background: var(--ml-navy);
+  color: var(--ml-paper);
+  box-shadow: 13px 13px 0 var(--ml-amber);
+}
+
+.ml-people-card .ml-card-top {
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(244, 241, 234, 0.19);
+  color: rgba(244, 241, 234, 0.65);
+}
+
+.ml-person {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 17px 0;
+  border-bottom: 1px solid rgba(244, 241, 234, 0.12);
+}
+
+.ml-person:last-child {
+  border-bottom: 0;
+}
+
+.ml-person span {
+  color: rgba(244, 241, 234, 0.51);
+  font-size: 11px;
+}
+
+.ml-person strong {
+  font-size: 14px;
+  font-weight: 700;
+  text-align: right;
+}
+
+.ml-values-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 17px;
+}
+
+.ml-value {
+  border-top: 1px solid #b9b2a5;
+  padding-top: 13px;
+}
+
+.ml-value > span {
+  color: var(--ml-berry);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.ml-value strong {
+  display: block;
+  margin-top: 20px;
+  color: var(--ml-ink);
+  font-size: 13px;
+}
+
+.ml-value p {
+  margin: 7px 0 0;
+  color: #687275;
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+@media (max-width: 900px) {
+  .ml-about-grid {
+    gap: 55px;
+  }
+}
+
+@media (max-width: 700px) {
+  .ml-about-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  .ml-about-intro p:not(.ml-kicker) {
+    margin-top: 22px;
+    font-size: 14px;
+  }
+  .ml-about-side {
+    margin-top: 18px;
+  }
+  .ml-people-card {
+    box-shadow: 8px 8px 0 var(--ml-amber);
+  }
+  .ml-person {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .ml-person strong {
+    text-align: left;
+  }
+  .ml-values-row {
+    gap: 12px;
+  }
+  .ml-value p {
+    font-size: 10px;
+  }
+}

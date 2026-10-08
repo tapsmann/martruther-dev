@@ -1,0 +1,126 @@
+/* Header internals: brand lockup, desktop nav, quote CTA and the mobile menu
+ * drawer. The floating shell that positions and dresses the bar (sticky inset,
+ * rounded surface, shadow) lives in page.css so it can be changed in one
+ * place alongside the rest of the page chrome. */
+
+.ml-header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.ml-brand {
+  display: inline-flex;
+  min-width: 0;
+  align-items: center;
+  gap: 10px;
+}
+
+.ml-brand-mark {
+  width: 43px;
+  height: 43px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.ml-brand-copy {
+  display: grid;
+  gap: 1px;
+  letter-spacing: 0.08em;
+  line-height: 1;
+}
+
+.ml-brand-copy strong {
+  color: var(--ml-ink);
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.ml-brand-copy span {
+  color: #6f7371;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+}
+
+.ml-desktop-nav {
+  display: flex;
+  align-items: center;
+  gap: 29px;
+  margin-left: auto;
+  color: #4f5e63;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.ml-header-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--ml-ink);
+  padding: 11px 15px;
+  color: var(--ml-ink);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.ml-header-cta:hover,
+.ml-header-cta:focus-visible {
+  background: var(--ml-ink);
+  color: var(--ml-paper);
+}
+
+.ml-menu-toggle {
+  display: none;
+  border: 0;
+  background: transparent;
+  color: var(--ml-ink);
+}
+
+/* The drawer surface (width, radius, border, shadow) is in page.css. */
+.ml-mobile-nav {
+  display: none;
+}
+
+@media (max-width: 700px) {
+  .ml-desktop-nav,
+  .ml-header-cta {
+    display: none;
+  }
+  .ml-menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 7px;
+  }
+  .ml-mobile-nav {
+    display: grid;
+    gap: 0;
+    padding: 7px 17px 17px;
+  }
+  .ml-mobile-nav a {
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(16, 37, 54, 0.1);
+    color: var(--ml-ink);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .ml-mobile-nav .ml-mobile-cta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 0;
+    margin-top: 8px;
+    padding: 13px 15px;
+    background: var(--ml-berry);
+    color: var(--ml-paper);
+  }
+}

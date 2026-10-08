@@ -1,0 +1,250 @@
+/* Contact section: phone/email/WhatsApp details and the quote
+ * request form. */
+
+.ml-contact-section {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: var(--ml-berry-deep);
+  color: var(--ml-paper);
+}
+
+.ml-contact-section::after {
+  background: linear-gradient(
+    90deg,
+    rgba(20, 4, 161, 0.92) 0%,
+    rgba(125, 176, 185, 0.86) 52%,
+    rgba(10, 31, 45, 0.86) 100%
+  );
+}
+
+.ml-contact-section > .ml-container {
+  position: relative;
+  z-index: 1;
+}
+
+/* The contact band is --ml-berry-deep, so both of these need a LIGHT value.
+   --ml-berry-light was previously a near-black (#030811), which put the
+   kicker at ~1.05:1 against the band behind it. */
+.ml-contact-section .ml-kicker {
+  color: var(--ml-amber);
+}
+
+.ml-contact-section h2,
+.ml-contact-copy h2 em {
+  color: var(--ml-paper);
+}
+
+.ml-contact-copy > p:not(.ml-kicker) {
+  color: rgba(244, 241, 234, 0.76);
+}
+
+.ml-contact-list a {
+  color: var(--ml-paper);
+}
+
+.ml-contact-list small {
+  color: rgba(244, 241, 234, 0.62);
+}
+
+.ml-whatsapp-link {
+  border-color: var(--ml-paper);
+  color: var(--ml-paper);
+}
+
+.ml-whatsapp-link:hover,
+.ml-whatsapp-link:focus-visible {
+  color: var(--ml-amber);
+}
+
+.ml-contact-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
+  align-items: start;
+  gap: 92px;
+}
+
+.ml-contact-copy h2 {
+  max-width: 480px;
+}
+.ml-contact-copy h2 em {
+  color: var(--ml-ink);
+}
+.ml-contact-copy > p:not(.ml-kicker) {
+  max-width: 385px;
+  margin: 25px 0 0;
+  color: rgba(16, 37, 54, 0.7);
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.ml-contact-list {
+  display: grid;
+  gap: 14px;
+  margin-top: 35px;
+}
+
+.ml-contact-list a {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  color: var(--ml-ink);
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.ml-contact-list a:hover,
+.ml-contact-list a:focus-visible {
+  text-decoration: underline;
+}
+.ml-contact-list svg {
+  margin-top: 1px;
+}
+.ml-contact-list small {
+  display: block;
+  margin-top: 4px;
+  color: rgba(16, 37, 54, 0.57);
+  font-size: 10px;
+  font-weight: 500;
+}
+
+.ml-whatsapp-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 35px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--ml-ink);
+  color: var(--ml-ink);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.ml-whatsapp-link:hover,
+.ml-whatsapp-link:focus-visible {
+  color: rgba(16, 37, 54, 0.6);
+}
+
+.ml-quote-form {
+  padding: 29px 30px 26px;
+  background: var(--ml-paper);
+  box-shadow: 14px 14px 0 rgba(16, 37, 54, 0.19);
+}
+
+.ml-form-heading {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 17px;
+  border-bottom: 1px solid var(--ml-line);
+  color: #7c3152;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+}
+
+.ml-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 19px 16px;
+  margin-top: 26px;
+}
+
+.ml-form-grid label {
+  display: grid;
+  gap: 8px;
+}
+
+.ml-form-grid label span {
+  color: #5d686b;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.ml-form-full {
+  grid-column: 1 / -1;
+}
+
+.ml-form-grid input {
+  width: 100%;
+  min-height: 42px;
+  border: 0;
+  border-bottom: 1px solid #bcb8ae;
+  border-radius: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--ml-ink);
+  font: inherit;
+  font-size: 13px;
+}
+
+.ml-form-grid input::placeholder {
+  color: #9b9c95;
+}
+.ml-form-grid input:focus {
+  border-color: var(--ml-ink);
+  box-shadow: 0 1px 0 var(--ml-ink);
+}
+.ml-form-grid input[type="date"] {
+  color: #7d827f;
+}
+
+.ml-button-submit {
+  width: 100%;
+  margin-top: 28px;
+  background: var(--ml-navy);
+  color: var(--ml-paper);
+  cursor: pointer;
+}
+
+.ml-button-submit:hover,
+.ml-button-submit:focus-visible {
+  background: var(--ml-blue);
+}
+
+.ml-form-note {
+  margin: 13px 0 0;
+  color: #858983;
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+@media (max-width: 900px) {
+  .ml-contact-grid {
+    gap: 55px;
+  }
+}
+
+@media (max-width: 700px) {
+  .ml-contact-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  .ml-contact-grid {
+    gap: 48px;
+  }
+  .ml-contact-copy > p:not(.ml-kicker) {
+    margin-top: 22px;
+  }
+  .ml-contact-list {
+    margin-top: 28px;
+  }
+  .ml-whatsapp-link {
+    margin-top: 26px;
+  }
+  .ml-quote-form {
+    padding: 24px 19px 21px;
+    box-shadow: 8px 8px 0 rgba(16, 37, 54, 0.19);
+  }
+  .ml-form-grid {
+    grid-template-columns: 1fr;
+    gap: 17px;
+    margin-top: 22px;
+  }
+  .ml-form-full {
+    grid-column: auto;
+  }
+}

@@ -1,0 +1,41 @@
+/* Self-hosted via @fontsource-variable/inter — no render-blocking Google Fonts request */
+@import "@fontsource-variable/inter";
+
+@import "tailwindcss";
+
+/*
+ * Stylesheet entry point. The site is split by section so each area of the page
+ * can be read and changed in isolation:
+ *
+ *   tokens    design tokens and the Tailwind colour mapping
+ *   base      document defaults, scrollbar, reduced-motion
+ *   shared    primitives used by more than one section (kicker, headings,
+ *             buttons, the generic section shell, dark band treatment)
+ *   layout    page shell and container
+ *   header    sticky header and mobile menu
+ *   hero      hero and dispatch board
+ *   trust     highlights strip under the hero
+ *   services  truck capability cards
+ *   about     story, people and values
+ *   fleet     fleet cards, including the truck photo panels
+ *   contact   contact details and quote request form
+ *   footer    site footer
+ *
+ * Order matters: `shared` and `layout` load before the section files so the
+ * sections' own rules override the shared defaults.
+ */
+@import "./styles/tokens.css";
+@import "./styles/base.css";
+@import "./styles/shared.css";
+@import "./styles/layout.css";
+@import "./styles/page.css";
+@import "./styles/header.css";
+@import "./styles/hero.css";
+@import "./styles/trust.css";
+@import "./styles/services.css";
+@import "./styles/about.css";
+@import "./styles/fleet.css";
+@import "./styles/contact.css";
+@import "./styles/footer.css";
+
+@source "./**/*.{ts,tsx}";

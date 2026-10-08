@@ -1,0 +1,43 @@
+{
+  "name": "martruther-logistics",
+  "displayName": "Martruther Logistics",
+  "private": true,
+  "description": "Marketing site for Martruther Logistics — freight and haulage in Harare, Zimbabwe.",
+  "type": "module",
+  "scripts": {
+    "dev": "react-router dev",
+    "build": "react-router build",
+    "start": "vite preview",
+    "typecheck": "react-router typegen && tsc --noEmit",
+    "test": "vitest --run --passWithNoTests",
+    "format": "oxfmt ."
+  },
+  "dependencies": {
+    "@fontsource-variable/inter": "^5.2.8",
+    "@react-router/fs-routes": "8.1.0",
+    "@react-router/node": "8.1.0",
+    "@tabler/icons-react": "^3.41.1",
+    "clsx": "^2.1.1",
+    "isbot": "^5.2.2",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "react-router": "8.1.0",
+    "tailwind-merge": "^3.5.0"
+  },
+  "devDependencies": {
+    "@react-router/dev": "8.1.0",
+    "@tailwindcss/vite": "^4.2.4",
+    "@types/node": "^24.2.1",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "oxfmt": "0.56.0",
+    "tailwindcss": "^4.2.4",
+    "typescript-7": "npm:typescript@^7.0.2",
+    "vite": "8.1.0",
+    "vitest": "^4.1.5"
+  },
+  "engines": {
+    "node": ">=22.22.0"
+  },
+  "packageManager": "pnpm@12.6.0"
+}

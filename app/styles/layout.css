@@ -1,0 +1,90 @@
+/* Page shell and container: the `.ml-site` wrapper (which owns the
+ * brand palette) and the shared `.ml-container` measure.
+ *
+ * Palette roles, and why each value is what it is:
+ *
+ *   Surfaces   paper / paper-deep for light bands, navy and the two berry
+ *              near-blacks for the dark bands. These carry the page's rhythm:
+ *              paper header -> navy hero -> near-black trust -> light body
+ *              sections -> navy fleet -> near-black contact -> paper footer.
+ *
+ *   Accent     --ml-amber is the signal colour and is used on DARK surfaces
+ *              only (kickers, labels, rules, the live dot). At 8.8:1 against
+ *              the darkest band it passes AA for 9-10px text.
+ *              --ml-amber-deep is the same hue for use on paper, where the
+ *              light amber would fall to ~1.3:1.
+ *
+ *   Ink        --ml-ink is the darkest neutral, used for body text on paper.
+ *              --ml-ink-soft / --ml-rule-light are the muted text and hairline
+ *              values that used to be hardcoded one-off hexes.
+ *
+ * Anything that needs to read as text on a dark band must use a light value,
+ * and anything on paper must use an ink value. Mixing them is what made the
+ * previous revision invisible in several places. */
+
+.ml-site {
+  /* Surfaces */
+  --ml-paper: #f4f1ea;
+  --ml-paper-deep: #e8e3d9;
+  --ml-navy: #0a2231;
+  --ml-ink: #06111a;
+  --ml-berry: #04020e;
+  --ml-berry-deep: #13020b;
+
+  /* Accent. Amber reads on dark; amber-deep reads on paper. */
+  --ml-amber: #eeb463;
+  --ml-amber-deep: #8f5714;
+
+  /* A muted road blue-grey. The previous vivid #071486 scored 1.13:1 against
+   * the navy hero, so anything using it there was invisible. */
+  --ml-blue: #143a52;
+
+  /* Light berry tint. Despite the name this is a LIGHT value: it is used for
+   * accent text on the dark bands, so it has to be light to be legible. */
+  --ml-berry-light: #e9dbe1;
+
+  /*
+   * Background photograph for the dark bands (hero, fleet, contact).
+   * `styles/shared.css` paints it onto each band's ::before. It must be
+   * declared here on `.ml-site` because custom properties inherit downwards
+   * only — the per-truck overrides in `fleet.css` are set on the panel
+   * elements, so the section-level pseudo-elements can never see them.
+   * Dropping this declaration silently emptied the hero and contact bands.
+   */
+  --ml-truck-photo: url("https://cdn.builder.io/api/v1/image/assets%2F53330abe4fc44fbea39222e8deb82a96%2F542ad9d1b6e54c23822757451e7c0df9?format=webp&width=800&height=1200");
+
+  /* Muted text and hairlines. --ml-ink-mute is the lightest text value we
+     allow: #6b7377 measured 4.29:1 on paper, so it was nudged darker. */
+  --ml-ink-soft: #4f5e63;
+  --ml-ink-mute: #5e666a;
+  --ml-rule-light: #b9b2a5;
+  --ml-rule-dark: rgba(244, 241, 234, 0.16);
+  --ml-on-dark: #e6dfe4;
+  --ml-on-dark-soft: #a9a3ab;
+
+  /* Hairlines used by the light header */
+  --ml-line: rgba(16, 37, 54, 0.16);
+  --ml-light-line: rgba(244, 241, 234, 0.2);
+
+  font-family: "Inter Variable", "Inter", sans-serif;
+}
+
+.ml-site * {
+  box-sizing: border-box;
+}
+
+.ml-site a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.ml-container {
+  width: min(1120px, calc(100% - 48px));
+  margin-inline: auto;
+}
+
+@media (max-width: 700px) {
+  .ml-container {
+    width: min(100% - 34px, 560px);
+  }
+}

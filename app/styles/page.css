@@ -1,0 +1,249 @@
+/* Shared chrome: skip link, the floating header treatment, and the page shell
+ * used by the legal routes (terms, privacy, cookies). */
+
+/* Visible only when focused — lets keyboard users skip the nav. */
+.ml-skip-link {
+  position: absolute;
+  z-index: 100;
+  top: -60px;
+  left: 16px;
+  padding: 10px 16px;
+  border-radius: 0 0 6px 6px;
+  background: var(--ml-ink);
+  color: var(--ml-paper);
+  font-size: 12px;
+  font-weight: 700;
+  transition: top 0.18s ease;
+}
+
+.ml-skip-link:focus {
+  top: 0;
+}
+
+/*
+ * Floating header. It sits inset from the top of the viewport with rounded
+ * corners and a shadow so it reads as a separate surface gliding over the
+ * page rather than a full-bleed bar stuck to the edge. The negative top margin
+ * keeps the first section's full-bleed backgrounds behind it.
+ */
+.ml-header {
+  position: sticky;
+  z-index: 30;
+  top: 14px;
+  margin-bottom: -14px;
+  pointer-events: none;
+}
+
+.ml-header-inner {
+  display: flex;
+  width: min(1120px, calc(100% - 48px));
+  margin-inline: auto;
+  height: 72px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding-inline: 22px;
+  border: 1px solid var(--ml-line);
+  border-radius: 14px;
+  background: rgba(244, 241, 234, 0.9);
+  box-shadow: 0 10px 30px rgba(6, 17, 26, 0.12);
+  backdrop-filter: blur(14px);
+  pointer-events: auto;
+}
+
+.ml-mobile-nav {
+  width: min(1120px, calc(100% - 48px));
+  margin: 8px auto 0;
+  border: 1px solid var(--ml-line);
+  border-radius: 14px;
+  background: rgba(244, 241, 234, 0.98);
+  box-shadow: 0 14px 34px rgba(6, 17, 26, 0.14);
+  backdrop-filter: blur(14px);
+  pointer-events: auto;
+}
+
+.ml-header-cta,
+.ml-menu-toggle,
+.ml-desktop-nav,
+.ml-brand {
+  pointer-events: auto;
+}
+
+/* ---------------------------------------------------------------- legal pages */
+
+/*
+ * The floating header sits ~86px tall (14px offset + 72px bar). Without this
+ * margin an anchor jump would park the section heading underneath it.
+ */
+section[id] {
+  scroll-margin-top: 104px;
+}
+
+.ml-page {
+  padding: 150px 0 96px;
+}
+
+.ml-page-inner {
+  max-width: 760px;
+}
+
+.ml-page-crumbs {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 30px;
+  color: var(--ml-ink-mute);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.ml-page-crumbs a {
+  color: var(--ml-ink-soft);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.ml-page-crumbs a:hover,
+.ml-page-crumbs a:focus-visible {
+  color: var(--ml-amber-deep);
+}
+
+.ml-page-head {
+  margin-bottom: 38px;
+  padding-bottom: 26px;
+  border-bottom: 1px solid var(--ml-line);
+}
+
+.ml-page-head h1 {
+  margin: 0;
+  color: var(--ml-ink);
+  font-size: clamp(2.3rem, 6vw, 3.4rem);
+  font-weight: 760;
+  letter-spacing: -0.028em;
+  line-height: 1.02;
+}
+
+.ml-page-updated {
+  margin: 14px 0 0;
+  color: var(--ml-ink-mute);
+  font-size: 12px;
+}
+
+.ml-prose > * + * {
+  margin-top: 17px;
+}
+
+.ml-prose h2 {
+  margin: 42px 0 0;
+  color: var(--ml-ink);
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: -0.012em;
+  line-height: 1.25;
+}
+
+.ml-prose p,
+.ml-prose li {
+  color: var(--ml-ink-soft);
+  font-size: 15px;
+  line-height: 1.72;
+}
+
+.ml-prose ul {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding-left: 20px;
+}
+
+.ml-prose a {
+  color: var(--ml-ink);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.ml-prose a:hover,
+.ml-prose a:focus-visible {
+  color: var(--ml-amber-deep);
+}
+
+.ml-prose a:focus-visible {
+  outline: 2px solid var(--ml-amber-deep);
+  outline-offset: 3px;
+}
+
+.ml-notice {
+  padding: 16px 18px;
+  border: 1px solid rgba(143, 87, 20, 0.28);
+  border-left: 3px solid var(--ml-amber-deep);
+  border-radius: 8px;
+  background: rgba(238, 180, 99, 0.14);
+}
+
+.ml-notice strong {
+  color: var(--ml-ink);
+}
+
+.ml-page-foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-top: 52px;
+  padding-top: 28px;
+  border-top: 1px solid var(--ml-line);
+}
+
+.ml-page-foot-links {
+  display: flex;
+  gap: 18px;
+  font-size: 12px;
+}
+
+.ml-page-foot-links a {
+  color: var(--ml-ink-soft);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.ml-page-foot-links a:hover,
+.ml-page-foot-links a:focus-visible {
+  color: var(--ml-amber-deep);
+}
+
+@media (max-width: 900px) {
+  .ml-page {
+    padding-top: 130px;
+  }
+}
+
+@media (max-width: 700px) {
+  .ml-header {
+    top: 8px;
+    margin-bottom: -8px;
+  }
+  .ml-header-inner,
+  .ml-mobile-nav {
+    width: calc(100% - 24px);
+  }
+  .ml-header-inner {
+    height: 62px;
+    padding-inline: 14px;
+    border-radius: 11px;
+  }
+  .ml-mobile-nav {
+    border-radius: 11px;
+  }
+  .ml-page {
+    padding: 116px 0 68px;
+  }
+  section[id] {
+    scroll-margin-top: 86px;
+  }
+  .ml-page-foot {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

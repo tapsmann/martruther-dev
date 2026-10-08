@@ -1,0 +1,22 @@
+/* Design tokens. The brand palette is declared as custom properties
+ * on `.ml-site` (see layout.css); the three channels below are the only
+ * page-level values Tailwind utilities are exposed for. */
+
+/*
+ * Page-level palette. The site itself is light-only, so this is a fixed set of
+ * HSL channels rather than a themable token set — `.ml-site` below owns the
+ * brand colours for the actual design.
+ */
+:root {
+  --background: 40 25% 94%;
+  --foreground: 206 36% 16%;
+  --muted-foreground: 205 12% 43%;
+}
+
+/* Expose the channels above as Tailwind color utilities so `bg-background`,
+   `text-foreground` and friends resolve. */
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+}

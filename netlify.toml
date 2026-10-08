@@ -1,0 +1,13 @@
+[build]
+command = "pnpm build"
+publish = "build/client"
+
+[build.environment]
+NODE_VERSION = "22"
+
+# Single-page app: serve the shell for any unknown path so client-side
+# routes keep working on a hard refresh or a shared deep link.
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200

@@ -1,0 +1,58 @@
+/* Document-level defaults: font stack, background, scrollbar
+ * treatment and smooth scrolling. */
+
+@layer base {
+  html {
+    /* The hero, fleet and contact bands use full-bleed decorative pseudo
+       elements. Previously the page wrapper carried `overflow-hidden`; that
+       lived on a single route's root and is gone now the shell is shared, so
+       the guard belongs on the document. `clip` avoids creating a scroll
+       container, which would break `position: sticky` on the header. */
+    overflow-x: clip;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Inter Variable", "Inter", sans-serif;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.22);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.34);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Respect the OS "reduce motion" preference. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .ml-desktop-nav a,
+  .ml-header-cta,
+  .ml-text-link,
+  .ml-button,
+  .ml-whatsapp-link,
+  .ml-menu-toggle,
+  .ml-mobile-nav a {
+    transition: none;
+  }
+  .ml-button:hover,
+  .ml-button:focus-visible {
+    transform: none;
+  }
+}
