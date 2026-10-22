@@ -47,11 +47,16 @@
    * Background photograph for the dark bands (hero, fleet, contact).
    * `styles/shared.css` paints it onto each band's ::before. It must be
    * declared here on `.ml-site` because custom properties inherit downwards
-   * only — the per-truck overrides in `fleet.css` are set on the panel
+   * only - the per-truck overrides in `fleet.css` are set on the panel
    * elements, so the section-level pseudo-elements can never see them.
    * Dropping this declaration silently emptied the hero and contact bands.
+   *
+   * Served from `public/` rather than the builder.io CDN: this band is the
+   * hero's largest paint, and self-hosting it removes a third-party round
+   * trip from the critical path. `root.tsx` preloads the same path, so the
+   * URL here must stay byte-identical to the preload or the hint is wasted.
    */
-  --ml-truck-photo: url("https://cdn.builder.io/api/v1/image/assets%2F53330abe4fc44fbea39222e8deb82a96%2F542ad9d1b6e54c23822757451e7c0df9?format=webp&width=800&height=1200");
+  --ml-truck-photo: url("/band-truck.webp");
 
   /* Muted text and hairlines. --ml-ink-mute is the lightest text value we
      allow: #6b7377 measured 4.29:1 on paper, so it was nudged darker. */

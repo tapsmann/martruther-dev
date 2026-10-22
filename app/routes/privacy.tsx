@@ -1,16 +1,15 @@
 import { Link } from "react-router";
 
-import { APP_TITLE } from "@/lib/app-config";
+import { seoMeta } from "@/lib/seo";
 import { EMAIL } from "@/lib/site";
 
 export function meta() {
-  return [
-    { title: `Privacy policy — ${APP_TITLE}` },
-    {
-      name: "description",
-      content: "How Martruther Logistics handles personal information.",
-    },
-  ];
+  return seoMeta({
+    path: "/privacy",
+    title: "Privacy policy",
+    description:
+      "How Martruther Logistics collects, uses and protects personal information, what we retain and for how long, and the rights you can exercise.",
+  });
 }
 
 export default function PrivacyRoute() {

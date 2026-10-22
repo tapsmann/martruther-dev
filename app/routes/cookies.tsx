@@ -1,16 +1,15 @@
 import { Link } from "react-router";
 
-import { APP_TITLE } from "@/lib/app-config";
+import { seoMeta } from "@/lib/seo";
 import { EMAIL } from "@/lib/site";
 
 export function meta() {
-  return [
-    { title: `Cookie policy — ${APP_TITLE}` },
-    {
-      name: "description",
-      content: "Which cookies and local storage this website uses, and why.",
-    },
-  ];
+  return seoMeta({
+    path: "/cookies",
+    title: "Cookie policy",
+    description:
+      "Which cookies and local storage this website uses and why, the third-party requests it makes, how the quote form works, and how to manage consent.",
+  });
 }
 
 export default function CookiesRoute() {

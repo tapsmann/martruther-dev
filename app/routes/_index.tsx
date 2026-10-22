@@ -13,25 +13,20 @@ import {
 } from "@tabler/icons-react";
 import { useState, type FormEvent } from "react";
 
-import { APP_TITLE } from "@/lib/app-config";
+import { seoMeta } from "@/lib/seo";
 import {
   EMAIL,
+  LOGO_URL,
   PHONE_PRIMARY,
   PHONE_PRIMARY_HREF,
   PHONE_SECONDARY,
   PHONE_SECONDARY_HREF,
+  WHATSAPP_NUMBER,
   WHATSAPP_URL,
 } from "@/lib/site";
 
 export function meta() {
-  return [
-    { title: APP_TITLE },
-    {
-      name: "description",
-      content:
-        "Reliable freight and haulage from Martruther Logistics in Harare. Request a quote for 15T and 30T transport across Zimbabwe.",
-    },
-  ];
+  return seoMeta({ path: "/" });
 }
 
 const serviceOptions = [
@@ -81,7 +76,7 @@ export default function HomeRoute() {
 
     setSubmitted(true);
     window.open(
-      `https://wa.me/263771191655?text=${body}`,
+      `https://wa.me/${WHATSAPP_NUMBER}?text=${body}`,
       "_blank",
       "noopener,noreferrer",
     );
@@ -125,8 +120,8 @@ export default function HomeRoute() {
             aria-label="Martruther Logistics dispatch overview"
           >
             <div className="ml-board-topline">
-              <span>DISPATCH / 2022â€”NOW</span>
-              <span>MTLâ€”01</span>
+              <span>DISPATCH / 2022—NOW</span>
+              <span>MTL—01</span>
             </div>
             <div className="ml-board-route">
               <div className="ml-route-label ml-route-start">
@@ -149,7 +144,7 @@ export default function HomeRoute() {
               <div className="ml-board-wheel wheel-two" />
             </div>
             <div className="ml-board-footer">
-              <span>2 TRUCKS</span>
+              <span>NATIONWIDE</span>
               <span>15T + 30T</span>
               <span>
                 <IconShieldCheck size={16} /> INSURED
@@ -321,17 +316,24 @@ export default function HomeRoute() {
                 <span className="ml-kicker-line" /> Our working fleet
               </p>
               <h2>
-                Two trucks. <em>Ready to work.</em>
+                Whatever the load. <em>Ready to work.</em>
               </h2>
             </div>
             <p className="ml-section-intro">
-              A focused fleet means direct attention, practical planning, and
-              equipment selected for the work we take on.
+              Whatever needs moving, we match the truck to it: direct
+              attention, practical planning, and equipment selected for the
+              work we take on.
             </p>
           </div>
           <div className="ml-fleet-grid">
             <article className="ml-fleet-card">
               <div className="ml-fleet-visual ml-fleet-visual-heavy">
+                <img
+                  className="ml-fleet-mark"
+                  src={LOGO_URL}
+                  alt=""
+                  aria-hidden="true"
+                />
                 <span>MTL / 30</span>
               </div>
               <div className="ml-fleet-details">
@@ -358,6 +360,12 @@ export default function HomeRoute() {
             </article>
             <article className="ml-fleet-card">
               <div className="ml-fleet-visual ml-fleet-visual-light">
+                <img
+                  className="ml-fleet-mark"
+                  src={LOGO_URL}
+                  alt=""
+                  aria-hidden="true"
+                />
                 <span>MTL / 15</span>
               </div>
               <div className="ml-fleet-details">
@@ -383,6 +391,10 @@ export default function HomeRoute() {
               </dl>
             </article>
           </div>
+          <p className="ml-fleet-note">
+            Don&rsquo;t see your load here? Tell us what needs moving and we
+            will match the truck to it.
+          </p>
         </div>
       </section>
 
@@ -478,7 +490,7 @@ export default function HomeRoute() {
               </label>
             </div>
             <button type="submit" className="ml-button ml-button-submit">
-              {submitted ? "Opening your emailâ€¦" : "Send quote request"}{" "}
+              {submitted ? "Opening your email…" : "Send quote request"}{" "}
               <IconArrowRight size={18} />
             </button>
             <p className="ml-form-note">

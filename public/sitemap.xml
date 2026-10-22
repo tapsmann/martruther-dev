@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Sitemap for Martruther Logistics.
+
+  Replace martruther.example with the real domain when the site is deployed -
+  the same value lives in app/lib/app-config.ts as SITE_URL.
+
+  <lastmod> is deliberately omitted. Every page here is a real route, but
+  asserting a modification date for pages whose content has not changed would
+  be inaccurate, and search engines discount lastmod values they catch out.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://martruther.example/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://martruther.example/terms</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://martruther.example/privacy</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://martruther.example/cookies</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+</urlset>

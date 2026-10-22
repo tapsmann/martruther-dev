@@ -1,0 +1,38 @@
+# Martruther Logistics
+
+> Freight and haulage company based in Harare, Zimbabwe. Runs 15-tonne and
+> 30-tonne trucks on routes across Zimbabwe, offering full truckload, part
+> loads, same-day and next-day runs, and scheduled contracts.
+
+## Pages
+
+- [Home](https://martruther.example/): Services, the working fleet, the team behind the company, and a quote request form
+- [Terms of service](https://martruther.example/terms): Quotes and pricing, booking, collection and delivery, damage and claims, payment, liability, governing law
+- [Privacy policy](https://martruther.example/privacy): What personal information is collected, why it is used, retention, sharing, and the rights you can exercise
+- [Cookie policy](https://martruther.example/cookies): Cookies and local storage used, third-party requests, how the quote form works, and managing consent
+
+## Services
+
+- Full truckload (FTL)
+- Part loads
+- Same-day / next-day runs
+- Scheduled contracts
+
+## Fleet
+
+- 30 tonne truck - bulk and long-haul, palletized materials
+- 15 tonne truck - local and last-mile, smaller commercial loads
+- Availability on request beyond the vehicles listed
+
+## Contact
+
+- Primary line: +263 771 316 085
+- Alternative line: +263 771 191 655
+- Email: martruthertransport@gmail.com
+- WhatsApp: https://wa.me/263771316085
+- Address: 1401 3rd Avenue, Glen View 1, Harare, Zimbabwe
+- Hours: Mon-Fri 07:00-17:00, Saturday 08:00-13:00, Sunday closed
+
+## Optional
+
+- [Sitemap](https://martruther.example/sitemap.xml)

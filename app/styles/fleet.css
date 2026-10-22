@@ -33,6 +33,15 @@
   margin-bottom: 52px;
 }
 
+/* Availability line under the truck cards: keeps the section from reading as
+   a complete inventory of the fleet. */
+.ml-fleet-note {
+  margin: 22px 0 0;
+  color: rgba(244, 241, 234, 0.58);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
 .ml-fleet-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -94,6 +103,24 @@
   letter-spacing: 0.14em;
 }
 
+/* Martruther badge watermarked over each truck photograph. The source art is
+   portrait with the circle sitting high, so `cover` frames the badge and the
+   percentage pulls it into view. Sits above the photo and any panel tint,
+   below the "MTL / nn" label, and never intercepts pointer events. */
+.ml-fleet-mark {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  width: 78px;
+  height: 78px;
+  object-fit: cover;
+  object-position: 50% 26%;
+  transform: translate(-50%, -50%);
+  opacity: 0.32;
+  pointer-events: none;
+}
+
 .ml-fleet-visual-heavy {
   --ml-truck-photo: url("/fleet-30t-daf.webp");
   /*--ml-truck-veil: linear-gradient(
@@ -105,7 +132,10 @@
 }
 
 .ml-fleet-visual-light {
-  --ml-truck-photo: url("/fleet-15t-benz.jpg");
+  /* WebP re-encode of the original 1600x1200 JPEG (307 KB -> 143 KB), sized
+     down to 1200x900 - the panel is only 548x215 CSS px, so the extra pixels
+     were pure weight. The .jpg remains in public/ as the rollback copy. */
+  --ml-truck-photo: url("/fleet-15t-benz.webp");
   /*--ml-truck-veil: linear-gradient(
     50deg,
     rgba(22, 89, 121, 0.9) 0%,
@@ -187,6 +217,10 @@
   }
   .ml-fleet-visual {
     min-height: 180px;
+  }
+  .ml-fleet-mark {
+    width: 64px;
+    height: 64px;
   }
   .ml-fleet-card dl {
     gap: 9px;

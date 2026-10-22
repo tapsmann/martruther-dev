@@ -7,6 +7,11 @@ import { APP_TITLE } from "@/lib/app-config";
 import stylesheet from "./global.css?url";
 
 export const links: LinksFunction = () => [
+  // The hero/contact band photograph is the page's largest paint. Preloading
+  // it lets the browser fetch it alongside the CSS instead of discovering it
+  // only once the stylesheet has applied `--ml-truck-photo`. The href must
+  // match the url() in `styles/layout.css` exactly.
+  { rel: "preload", as: "image", type: "image/webp", href: "/band-truck.webp" },
   { rel: "stylesheet", href: stylesheet },
 ];
 

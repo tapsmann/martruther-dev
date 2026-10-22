@@ -9,15 +9,17 @@ export const LOGO_URL =
 
 export const EMAIL = "martruthertransport@gmail.com";
 
-export const PHONE_PRIMARY = "+263 771 191 655";
-export const PHONE_SECONDARY = "+263 771 316 085";
+export const PHONE_PRIMARY = "+263 771 316 085";
+export const PHONE_SECONDARY = "+263 771 191 655";
 
 /** Strips spaces so the value can be dropped straight into a `tel:` href. */
 export const PHONE_PRIMARY_HREF = `tel:${PHONE_PRIMARY.replace(/ /g, "")}`;
 export const PHONE_SECONDARY_HREF = `tel:${PHONE_SECONDARY.replace(/ /g, "")}`;
 
-export const WHATSAPP_URL =
-  "https://wa.me/263771191655?text=Hello%20Martruther%20Logistics%2C%20I%27d%20like%20to%20request%20a%20freight%20quote.";
+/** Country code + number, no separators — for composing wa.me links. */
+export const WHATSAPP_NUMBER = "263771316085";
+
+export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=Hello%20Martruther%20Logistics%2C%20I%27d%20like%20to%20request%20a%20freight%20quote.`;
 
 export const ADDRESS_LINES = [
   "1401 3rd Avenue, Glen View 1",

@@ -1,17 +1,15 @@
 import { Link } from "react-router";
 
-import { APP_TITLE } from "@/lib/app-config";
+import { seoMeta } from "@/lib/seo";
 import { EMAIL, PHONE_PRIMARY_HREF } from "@/lib/site";
 
 export function meta() {
-  return [
-    { title: `Terms of service — ${APP_TITLE}` },
-    {
-      name: "description",
-      content:
-        "Terms of service for freight and haulage provided by Martruther Logistics.",
-    },
-  ];
+  return seoMeta({
+    path: "/terms",
+    title: "Terms of service",
+    description:
+      "The terms that apply to freight and haulage work with Martruther Logistics: quotes and pricing, booking, collection and delivery, claims, payment and liability.",
+  });
 }
 
 export default function TermsRoute() {

@@ -1,0 +1,10 @@
+# robots.txt for Martruther Logistics
+# Spec: https://www.rfc-editor.org/rfc/rfc9309
+
+User-agent: *
+Allow: /
+
+# Set the real domain when the site is deployed. app/lib/app-config.ts holds
+# the same value (SITE_URL) for every tag rendered in the page, but static
+# files in public/ cannot import TypeScript, so it is repeated here.
+Sitemap: https://martruther.example/sitemap.xml
